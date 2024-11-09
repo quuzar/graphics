@@ -15,6 +15,16 @@ namespace graphics_engine
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine(_one);
+            _one = new Vector4(1, 2, 3, 4);
+            _one[2] = 3653;
+            label1.Text = $"{_one[2]}";
         }
+
+        Vector4 _one;
+        Vector3 _two = 79;
+
+
+        
     }
 }
