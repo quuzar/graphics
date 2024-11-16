@@ -19,9 +19,6 @@ namespace graphics_engine
         protected double z;
         protected double w;
 
-        /// <summary>
-        /// Клонирует объект Vector4
-        /// </summary>
         new public Vector4 Clone()
         {
             try

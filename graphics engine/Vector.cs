@@ -24,9 +24,6 @@ namespace graphics_engine
 
         public double[] Point() => new[] { x, y };
 
-        /// <summary>
-        /// Клонирует объект Vector
-        /// </summary>
         public Vector Clone()
         {
             try

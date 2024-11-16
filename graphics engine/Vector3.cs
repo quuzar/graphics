@@ -16,9 +16,6 @@ namespace graphics_engine
 
         protected double z;
 
-        /// <summary>
-        /// Клонирует объект Vector3
-        /// </summary>
         new public Vector3 Clone() 
         {
             try
