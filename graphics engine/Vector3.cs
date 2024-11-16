@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace graphics_engine
 {
-    internal class Vector3 : Vector
+    class Vector3 : Vector
     {
-        public Vector3() : base() { }
-        public Vector3(double x = 0, double y = 0, double z = 0) : base(x, y)
+        public Vector3() : base() 
         {
+            z = 0;
+        }
+        public Vector3(double x = 0, double y = 0, double z = 0)
+        {
+            this.x = x;
+            this.y = y;
             this.z = z;
         }
 
+        new protected double x;
+        new protected double y;
         protected double z;
 
         new public Vector3 Clone() 
@@ -24,21 +31,90 @@ namespace graphics_engine
             }
             catch
             {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось создать новый Vector3 при помощи функции Clone()]");
                 return new Vector3(1f, 1f, 1f);
             }
         }
 
-        public static implicit operator Vector4(Vector3 _)
+        public static explicit operator Vector4(Vector3 _)
         {
-            return new Vector4(_[0], _[1], _[2], 1);
+            try
+            {
+                return new Vector4(_[0], _[1], _[2], 1);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [передан пустой объект Vectot3 для преобразования в Vector4]");
+                return new Vector4(0d, 0d, 0d, 0d);
+            }
         }
 
-        public static implicit operator Vector3(double _)
+        public static explicit operator Vector3(double _)
         {
-            return new Vector3(_, _, _);
+            try
+            {
+                return new Vector3(_, _, _);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось создать новый объект Vector3 при помощи переменной Double]");
+                return new Vector3(0d, 0d, 0d);
+            }
         }
 
-        new public double this[int i]
+        public static Vector3 operator +(Vector3 v1, Vector3 v2)
+        {
+            try
+            {
+                return new Vector3(v1[0] + v2[0], v1[1] + v2[1], v1[2] + v2[2]);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось сложить два объекта Vector3]");
+                return new Vector3(0d, 0d, 0d);
+            }
+        }
+
+        public static Vector3 operator -(Vector3 v1, Vector3 v2)
+        {
+            try
+            {
+                return new Vector3(v1[0] - v2[0], v1[1] - v2[1], v1[2] - v2[2]);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось вычисть два объекта Vector3]");
+                return new Vector3(0d, 0d, 0d);
+            }
+        }
+
+        public static Vector3 operator /(Vector3 v1, double _)
+        {
+            try
+            {
+                return new Vector3(v1[0] / _, v1[1] / _, v1[2] / _);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось разделить объект Vector3 на double]");
+                return new Vector3(0d, 0d, 0d);
+            }
+        }
+
+        public static Vector3 operator *(Vector3 v1, double _)
+        {
+            try
+            {
+                return new Vector3(v1[0] * _, v1[1] * _, v1[2] * _);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector3 [не удалось умножить объект Vector3 на double]");
+                return new Vector3(0d, 0d, 0d);
+            }
+        }
+
+        public override double this[int i]
         {
             get 
             {
@@ -47,16 +123,21 @@ namespace graphics_engine
                     case 0: return x; 
                     case 1: return y; 
                     case 2: return z;
-                    default: return 0;
+                    default:
+                        ErrorString.Input("ERROR: Class->Vector3 [неправильный индекс для получения значений]");
+                        return 0;
                 }
             }
             set
             {
                 switch (i)
                 {
-                    case 0: this.x = value; break;
-                    case 1: this.y = value; break;
-                    case 2: this.z = value; break;
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    case 2: z = value; break;
+                    default:
+                        ErrorString.Input("ERROR: Class->Vector3 [неправильный индекс для записи значений]");
+                        break;
                 }
             }
         }

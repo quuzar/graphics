@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace graphics_engine
 {
-    internal class Vector
+    class Vector
     {
         public Vector()
         {
-            this.x = 0;
-            this.y = 0;
+            x = 0;
+            y = 0;
         }
-        public Vector(double x=0, double y=0):base()
+        public Vector(double x=0, double y=0):this()
         {
             this.x = x;
             this.y = y;
@@ -22,7 +22,18 @@ namespace graphics_engine
         protected double x;
         protected double y;
 
-        public double[] Point() => new[] { x, y };
+        public double[] Point()
+        {
+            try
+            {
+                return new[] { x, y };
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector [Double x, Double y не существуют в данном объекте]");
+                return new[] { 0d, 0d };
+            }
+        }
 
         public Vector Clone()
         {
@@ -32,16 +43,25 @@ namespace graphics_engine
             }
             catch
             {
+                ErrorString.Input("ERROR: Class->Vector [не удалось создать новый Vector при помощи функции Clone()]");
                 return new Vector(1f, 1f);
+            }
+        } 
+
+        public static explicit operator Vector(double _)
+        {
+            try
+            {
+                return new Vector(_, _);
+            }
+            catch
+            {
+                ErrorString.Input("ERROR: Class->Vector [не удалось создать новый Vector при помощи переменной Double]");
+                return new Vector(0f, 0f);
             }
         }
 
-        public static implicit operator Vector(double _)
-        {
-            return new Vector(_, _);
-        }
-
-        public double this[int i]
+        public virtual double this[int i]
         {
             get
             {
@@ -62,6 +82,8 @@ namespace graphics_engine
                     case 1: 
                         y = value; 
                         break;
+                    default: 
+                        return;
                 }
             }
         }
