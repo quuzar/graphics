@@ -79,20 +79,35 @@ namespace graphics_engine
 
         public void Print(Bitmap bitmap)
         {
-            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[1], bitmap);
-            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[2], bitmap);
-            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[3], bitmap);
-            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[0], bitmap);
-            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[5], bitmap);
-            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[6], bitmap);
-            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[7], bitmap);
-            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[4], bitmap);
-            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[4], bitmap);
-            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[5], bitmap);
-            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[6], bitmap);
-            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[7], bitmap);
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[1], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[2], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[3], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[0], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[5], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[6], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[7], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[5], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[6], bitmap, Color.Black);
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[7], bitmap, Color.Black);
         }
 
+        public void Print_2(Bitmap bitmap)
+        {
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[1], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[2], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[3], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[0], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[5], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[6], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[7], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[5], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[6], bitmap, Color.DarkRed);
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[7], bitmap, Color.DarkRed);
+        }
 
         public void Centre()
         {

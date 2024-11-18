@@ -54,36 +54,70 @@ namespace graphics_engine
 
         public void Print(Bitmap bitmap)
         {
-            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[8], bitmap)  ;//1
-            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[12], bitmap) ;//2
-            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[16], bitmap);//3
-            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[9], bitmap) ;//4
-            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[12], bitmap);//5
-            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[18], bitmap);//6
-            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[10], bitmap);//7
-            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[13], bitmap);//8
-            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[16], bitmap);//9
-            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[11], bitmap);//10
-            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[13], bitmap);//11
-            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[18], bitmap);//12
-            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[8], bitmap);//13
-            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[14], bitmap) ;//14
-            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[17], bitmap);//15
-            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[9], bitmap);//16
-            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[14], bitmap) ;//17
-            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[19], bitmap) ;//18
-            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[10], bitmap);//19
-            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[15], bitmap);//20
-            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[17], bitmap);//21
-            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[11], bitmap);//22
-            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[15], bitmap);//23
-            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[19], bitmap);//24
-            Generate.Line(OutCOORDINATE[8], OutCOORDINATE[10], bitmap);//25
-            Generate.Line(OutCOORDINATE[9],OutCOORDINATE[11], bitmap);//26
-            Generate.Line(OutCOORDINATE[12], OutCOORDINATE[14], bitmap);//27
-            Generate.Line(OutCOORDINATE[13] ,OutCOORDINATE[15], bitmap)  ;//28
-            Generate.Line(OutCOORDINATE[16],OutCOORDINATE[18], bitmap);//29
-            Generate.Line(OutCOORDINATE[17],OutCOORDINATE[19], bitmap);//30
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[8], bitmap, Color.Black)  ;//1
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[12], bitmap, Color.Black) ;//2
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[16], bitmap, Color.Black);//3
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[9], bitmap, Color.Black) ;//4
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[12], bitmap, Color.Black);//5
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[18], bitmap, Color.Black);//6
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[10], bitmap, Color.Black);//7
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[13], bitmap, Color.Black);//8
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[16], bitmap, Color.Black);//9
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[11], bitmap, Color.Black);//10
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[13], bitmap, Color.Black);//11
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[18], bitmap, Color.Black);//12
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[8], bitmap, Color.Black);//13
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[14], bitmap, Color.Black) ;//14
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[17], bitmap, Color.Black);//15
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[9], bitmap, Color.Black);//16
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[14], bitmap, Color.Black) ;//17
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[19], bitmap, Color.Black) ;//18
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[10], bitmap, Color.Black);//19
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[15], bitmap, Color.Black);//20
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[17], bitmap, Color.Black);//21
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[11], bitmap, Color.Black);//22
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[15], bitmap, Color.Black);//23
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[19], bitmap, Color.Black);//24
+            Generate.Line(OutCOORDINATE[8], OutCOORDINATE[10], bitmap, Color.Black);//25
+            Generate.Line(OutCOORDINATE[9],OutCOORDINATE[11], bitmap, Color.Black);//26
+            Generate.Line(OutCOORDINATE[12], OutCOORDINATE[14], bitmap, Color.Black);//27
+            Generate.Line(OutCOORDINATE[13] ,OutCOORDINATE[15], bitmap, Color.Black)  ;//28
+            Generate.Line(OutCOORDINATE[16],OutCOORDINATE[18], bitmap, Color.Black);//29
+            Generate.Line(OutCOORDINATE[17],OutCOORDINATE[19], bitmap, Color.Black);//30
+        }
+
+        public void Print_2(Bitmap bitmap)
+        {
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[8], bitmap, Color.DarkRed);//1
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[12], bitmap, Color.DarkRed);//2
+            Generate.Line(OutCOORDINATE[0], OutCOORDINATE[16], bitmap, Color.DarkRed);//3
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[9], bitmap, Color.DarkRed);//4
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[12], bitmap, Color.DarkRed);//5
+            Generate.Line(OutCOORDINATE[1], OutCOORDINATE[18], bitmap, Color.DarkRed);//6
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[10], bitmap, Color.DarkRed);//7
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[13], bitmap, Color.DarkRed);//8
+            Generate.Line(OutCOORDINATE[2], OutCOORDINATE[16], bitmap, Color.DarkRed);//9
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[11], bitmap, Color.DarkRed);//10
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[13], bitmap, Color.DarkRed);//11
+            Generate.Line(OutCOORDINATE[3], OutCOORDINATE[18], bitmap, Color.DarkRed);//12
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[8], bitmap, Color.DarkRed);//13
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[14], bitmap, Color.DarkRed);//14
+            Generate.Line(OutCOORDINATE[4], OutCOORDINATE[17], bitmap, Color.DarkRed);//15
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[9], bitmap, Color.DarkRed);//16
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[14], bitmap, Color.DarkRed);//17
+            Generate.Line(OutCOORDINATE[5], OutCOORDINATE[19], bitmap, Color.DarkRed);//18
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[10], bitmap, Color.DarkRed);//19
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[15], bitmap, Color.DarkRed);//20
+            Generate.Line(OutCOORDINATE[6], OutCOORDINATE[17], bitmap, Color.DarkRed);//21
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[11], bitmap, Color.DarkRed);//22
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[15], bitmap, Color.DarkRed);//23
+            Generate.Line(OutCOORDINATE[7], OutCOORDINATE[19], bitmap, Color.DarkRed);//24
+            Generate.Line(OutCOORDINATE[8], OutCOORDINATE[10], bitmap, Color.DarkRed);//25
+            Generate.Line(OutCOORDINATE[9], OutCOORDINATE[11], bitmap, Color.DarkRed);//26
+            Generate.Line(OutCOORDINATE[12], OutCOORDINATE[14], bitmap, Color.DarkRed);//27
+            Generate.Line(OutCOORDINATE[13], OutCOORDINATE[15], bitmap, Color.DarkRed);//28
+            Generate.Line(OutCOORDINATE[16], OutCOORDINATE[18], bitmap, Color.DarkRed);//29
+            Generate.Line(OutCOORDINATE[17], OutCOORDINATE[19], bitmap, Color.DarkRed);//30
         }
 
         public double[] Rolation

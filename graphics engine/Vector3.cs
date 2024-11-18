@@ -36,6 +36,29 @@ namespace graphics_engine
             }
         }
 
+        public static Vector3 Normalize(Vector3 v)
+        {
+            double length = Math.Sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+            if (length == 0) return new Vector3(0, 0, 0);
+            return v / length;
+        }
+
+        public static double DotProduct(Vector3 v1, Vector3 v2)
+        {
+            return v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
+        }
+
+        public static double CalculateBrightness(Vector3 lightDirection, Vector3 surfaceNormal)
+        {
+
+            Vector3 lightDirNormalized = Normalize(lightDirection);
+            Vector3 normalNormalized = Normalize(surfaceNormal);
+
+            double cosTheta = DotProduct(lightDirNormalized, normalNormalized);
+
+            return Math.Max(0, cosTheta);
+        }
+
         public static explicit operator Vector4(Vector3 _)
         {
             try
@@ -112,6 +135,15 @@ namespace graphics_engine
                 ErrorString.Input("ERROR: Class->Vector3 [не удалось умножить объект Vector3 на double]");
                 return new Vector3(0d, 0d, 0d);
             }
+        }
+
+        public static Vector3 CrossProduct(Vector3 v1, Vector3 v2)
+        {
+            double x = v1[1] * v2[2] - v1[2] * v2[1];
+            double y = v1[2] * v2[0] - v1[0] * v2[2];
+            double z = v1[0] * v2[1] - v1[1] * v2[0];
+
+            return new Vector3(x, y, z);
         }
 
         public override double this[int i]

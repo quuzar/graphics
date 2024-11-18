@@ -34,9 +34,9 @@ namespace graphics_engine
             get => new double[] { ROLATION[0], ROLATION[1], ROLATION[2] };
             set
             {
-                ROLATION[0] = (ROLATION[0] + value[0]) % 360;
-                ROLATION[1] = (ROLATION[1] + value[1]) % 360;
-                ROLATION[2] = (ROLATION[2] + value[2]) % 360;
+                ROLATION[0] = (ROLATION[0] + value[0]) % Math.PI;
+                ROLATION[1] = (ROLATION[1] + value[1]) % Math.PI;
+                ROLATION[2] = (ROLATION[2] + value[2]) % Math.PI;
             }
         }
 
@@ -64,12 +64,43 @@ namespace graphics_engine
 
         public void Print(Bitmap bitmap)
         {
-            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[4], bitmap);
-            Generate.Triangle(OutCOORDINATE[1], OutCOORDINATE[2], OutCOORDINATE[4], bitmap);
-            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[4], bitmap);
-            Generate.Triangle(OutCOORDINATE[3], OutCOORDINATE[0], OutCOORDINATE[4], bitmap);
-            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[2], bitmap);
-            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[0], bitmap);
+            /*List<FaceDistance> faceDistances = new List<FaceDistance>
+            {
+                new FaceDistance(new Vector4[] {OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[4]}),
+                new FaceDistance(new Vector4[] {OutCOORDINATE[1], OutCOORDINATE[2], OutCOORDINATE[4]}),
+                new FaceDistance(new Vector4[] {OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[4]}),
+                new FaceDistance(new Vector4[] {OutCOORDINATE[3], OutCOORDINATE[0], OutCOORDINATE[4]}),
+                new FaceDistance(new Vector4[] {OutCOORDINATE[1], OutCOORDINATE[2], OutCOORDINATE[0]}),
+                new FaceDistance(new Vector4[] {OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[0]})
+
+            };
+
+            faceDistances.Sort((fd1, fd2) => fd2.AverageZ.CompareTo(fd1.AverageZ));
+
+            foreach (var i in faceDistances)
+            {
+                Generate.Triangle(i.FaceIndex[0], i.FaceIndex[1], i.FaceIndex[2], bitmap);
+                Generate.Line(i.FaceIndex[0], i.FaceIndex[1], bitmap, Color.Black);
+                Generate.Line(i.FaceIndex[2], i.FaceIndex[1], bitmap, Color.Black);
+                Generate.Line(i.FaceIndex[0], i.FaceIndex[2], bitmap, Color.Black);
+            }*/
+
+            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Triangle(OutCOORDINATE[1], OutCOORDINATE[2], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Triangle(OutCOORDINATE[3], OutCOORDINATE[0], OutCOORDINATE[4], bitmap, Color.Black);
+            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[2], bitmap, Color.Black);
+            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[0], bitmap, Color.Black);
+        }
+
+        public void Print_2(Bitmap bitmap)
+        {
+            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Triangle(OutCOORDINATE[1], OutCOORDINATE[2], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Triangle(OutCOORDINATE[3], OutCOORDINATE[0], OutCOORDINATE[4], bitmap, Color.DarkRed);
+            Generate.Triangle(OutCOORDINATE[0], OutCOORDINATE[1], OutCOORDINATE[2], bitmap, Color.DarkRed);
+            Generate.Triangle(OutCOORDINATE[2], OutCOORDINATE[3], OutCOORDINATE[0], bitmap, Color.DarkRed);
         }
 
         public void ApplyTransformations()
@@ -89,6 +120,28 @@ namespace graphics_engine
         public void Centre()
         {
             CENTRE = (Vector3)(COORDINATE[0] + COORDINATE[1] + COORDINATE[2] + COORDINATE[3] + COORDINATE[4])/5d;
+        }
+
+        public static double CalculateAverageZ(params Vector4[] _  )
+        {
+            double sum = 0;
+            foreach(var i in _)
+                sum += i[2];
+
+            return sum / _.Length;
+        }
+
+    }
+
+    class FaceDistance
+    {
+        public Vector4[] FaceIndex { get; set; }
+        public double AverageZ { get; set; }
+
+        public FaceDistance(Vector4[] faceIndex)
+        {
+            FaceIndex = faceIndex;
+            AverageZ = ObjPyramid.CalculateAverageZ(FaceIndex);
         }
     }
 }
