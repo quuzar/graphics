@@ -15,12 +15,14 @@ namespace graphics_engine
             int width = bitmap.Width;
             int height = bitmap.Height;
 
-            Vector4 X = Matrix.Perspective(x);
-            Vector4 Y = Matrix.Perspective(y);
-            int x1 = (int)x[0];
-            int x2 = (int)y[0];
-            int y1 = (int)x[1];
-            int y2 = (int)y[1];
+
+            Vector4 X = x;
+            Vector4 Y = y;
+
+            int x1 = (int)X[0];
+            int x2 = (int)Y[0];
+            int y1 = (int)X[1];
+            int y2 = (int)Y[1];
 
             
 

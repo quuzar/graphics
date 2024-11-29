@@ -54,6 +54,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizY)).BeginInit();
@@ -197,6 +199,11 @@
             0,
             131072});
             this.rolX.Location = new System.Drawing.Point(77, 49);
+            this.rolX.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.rolX.Name = "rolX";
             this.rolX.Size = new System.Drawing.Size(74, 20);
             this.rolX.TabIndex = 21;
@@ -210,6 +217,11 @@
             0,
             131072});
             this.rolY.Location = new System.Drawing.Point(157, 49);
+            this.rolY.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.rolY.Name = "rolY";
             this.rolY.Size = new System.Drawing.Size(74, 20);
             this.rolY.TabIndex = 22;
@@ -223,6 +235,11 @@
             0,
             131072});
             this.rolZ.Location = new System.Drawing.Point(237, 49);
+            this.rolZ.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.rolZ.Name = "rolZ";
             this.rolZ.Size = new System.Drawing.Size(73, 20);
             this.rolZ.TabIndex = 23;
@@ -244,6 +261,11 @@
             0,
             0,
             0});
+            this.traX.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.traX.Name = "traX";
             this.traX.Size = new System.Drawing.Size(74, 20);
             this.traX.TabIndex = 26;
@@ -256,6 +278,11 @@
             0,
             0,
             0});
+            this.traY.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.traY.Name = "traY";
             this.traY.Size = new System.Drawing.Size(74, 20);
             this.traY.TabIndex = 27;
@@ -268,6 +295,11 @@
             0,
             0,
             0});
+            this.traZ.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.traZ.Name = "traZ";
             this.traZ.Size = new System.Drawing.Size(73, 20);
             this.traZ.TabIndex = 28;
@@ -357,7 +389,6 @@
             this.groupBox2.Size = new System.Drawing.Size(333, 114);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Изменение объекта";
             // 
             // groupBox3
             // 
@@ -376,10 +407,30 @@
             this.groupBox4.Controls.Add(this.error);
             this.groupBox4.Location = new System.Drawing.Point(768, 175);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(312, 396);
+            this.groupBox4.Size = new System.Drawing.Size(312, 276);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ошибки";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1005, 463);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "Стоп";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1005, 498);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 40;
+            this.button3.Text = "Старт";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -387,6 +438,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1103, 573);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -444,6 +497,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

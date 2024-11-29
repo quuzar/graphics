@@ -88,34 +88,28 @@ namespace graphics_engine
 
         public static Vector4 Perspective(Vector4 a)
         {
-            double fov = 90;
-            double aspect = 4 / 3;
-            double near = 0.1;
-            double far = 10.0;
-
-            fov = fov * Math.PI / 180.0;
-
-            double f = 1.0 / Math.Tan(fov / 2.0);
-            double depth = far - near;
+            if (a[2] == 0)
+            {
+                a[2] = 1;
+            }
+            if (a[2] <= 0)
+            {
+                a[0] = -1;
+                a[1] = -1;
+            }
 
             double[,] PerspectiveMatrix = new double[4, 4]
             {
-                { f / aspect, 0,         0,                              0 },
-                { 0,          f,         0,                              0 },
-                { 0,          0,         (far + near) / depth,           2 * far * near / depth },
-                { 0,          0,         -1,                             0 }
+                { 1.0/Math.Log(a[2]),     0,              0,       0 },
+                { 0,            1.0/Math.Log(a[2]),       0,       0 },
+                { 0,            0,              1,       0 },
+                { 0,            0,              0,       1}
             };
+
 
             a[3] = 1; 
 
             var b = Mult(a, PerspectiveMatrix);
-
-            /*if (b[3] != 0)
-            {
-                b[0] /= b[3];
-                b[1] /= b[3];
-                b[2] /= b[3];
-            }*/
 
             return b;
         }

@@ -30,6 +30,35 @@ namespace graphics_engine
         }
 
 
+        public void Perspective(Bitmap bit)
+        {
+            int h = bit.Height / 2;
+            int w = bit.Width / 2;
+            Vector3 c = new Vector3(w, h);
+
+            /*OutCOORDINATE[0] += (Vector4)c;
+            OutCOORDINATE[1] += (Vector4)c;
+            OutCOORDINATE[2] += (Vector4)c;
+            OutCOORDINATE[3] += (Vector4)c;
+            OutCOORDINATE[4] += (Vector4)c;
+            OutCOORDINATE[5] += (Vector4)c;
+            OutCOORDINATE[6] += (Vector4)c;
+            OutCOORDINATE[7] += (Vector4)c;*/
+
+            OutCOORDINATE[0] = Matrix.Perspective(OutCOORDINATE[0]);
+            OutCOORDINATE[1] = Matrix.Perspective(OutCOORDINATE[1]);
+            OutCOORDINATE[2] = Matrix.Perspective(OutCOORDINATE[2]);
+            OutCOORDINATE[3] = Matrix.Perspective(OutCOORDINATE[3]);
+            OutCOORDINATE[4] = Matrix.Perspective(OutCOORDINATE[4]);
+            OutCOORDINATE[5] = Matrix.Perspective(OutCOORDINATE[5]);
+            OutCOORDINATE[6] = Matrix.Perspective(OutCOORDINATE[6]);
+            OutCOORDINATE[7] = Matrix.Perspective(OutCOORDINATE[7]);
+
+
+
+        }
+
+
         public double[] Rolation
         {
             get => new double[] { ROLATION[0], ROLATION[1], ROLATION[2] };
